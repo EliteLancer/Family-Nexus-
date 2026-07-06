@@ -1,0 +1,6 @@
+{
+  "name": "Family Nexus",
+  "description": "Preserving Generations. Exploring Connections. An interactive family relationship explorer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

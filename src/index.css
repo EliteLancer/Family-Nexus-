@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-flow {
+  stroke-dasharray: 8, 8;
+  animation: flow 0.8s linear infinite;
+}
+
+/* Custom modern scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Modern Infinite Canvas Background styles */
+#infinite-canvas-container {
+  background-color: #060709 !important; /* Extremely dark charcoal base */
+  background-image: radial-gradient(circle at center, #0d0f14 0%, #050608 100%) !important;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+#infinite-canvas-bg {
+  background-color: transparent !important;
+  /* Double grid pattern: small fine grid + major dot intersections */
+  background-image: 
+    /* Subtle green/emerald center dots for life theme */
+    radial-gradient(circle, rgba(16, 185, 129, 0.18) 1.5px, transparent 1.5px),
+    /* Faint grid lines */
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+  transition: background 0.3s ease;
+}
+
+/* Refined, Premium Light Mode Overrides */
+.theme-light-high-contrast {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+.theme-light-high-contrast #infinite-canvas-container {
+  background-color: #f8fafc !important;
+  background-image: radial-gradient(circle at center, #ffffff 0%, #cbd5e1 100%) !important;
+}
+
+.theme-light-high-contrast #infinite-canvas-bg {
+  background-color: transparent !important;
+  background-image: 
+    radial-gradient(circle, rgba(5, 150, 105, 0.28) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px) !important;
+}
+
+/* Elegant styles for headers, panels, sidebars, cards, and overlays */
+.theme-light-high-contrast header,
+.theme-light-high-contrast .bg-\[\#1D1E21\]\/60,
+.theme-light-high-contrast .bg-\[\#1D1E21\]\/80,
+.theme-light-high-contrast .bg-\[\#161719\],
+.theme-light-high-contrast .bg-\[\#111214\]\/75,
+.theme-light-high-contrast .bg-\[\#111214\]\/40,
+.theme-light-high-contrast .bg-\[\#111214\]\/50,
+.theme-light-high-contrast .bg-neutral-900,
+.theme-light-high-contrast .bg-neutral-950,
+.theme-light-high-contrast .bg-\[\#121316\]\/90,
+.theme-light-high-contrast .bg-\[\#18191D\]\/90,
+.theme-light-high-contrast [class*="bg-[#1D1E21]"],
+.theme-light-high-contrast [class*="bg-[#161719]"],
+.theme-light-high-contrast [class*="bg-[#111214]"],
+.theme-light-high-contrast [class*="bg-[#121316]"],
+.theme-light-high-contrast [class*="bg-[#18191D]"] {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(14px) !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.03), 0 8px 10px -6px rgba(15, 23, 42, 0.03), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Map neon/bright accent colors to beautiful high-contrast deep pastel versions in light mode */
+.theme-light-high-contrast .text-emerald-400 {
+  color: #059669 !important;
+}
+.theme-light-high-contrast .text-blue-400 {
+  color: #2563EB !important;
+}
+.theme-light-high-contrast .text-rose-400 {
+  color: #E11D48 !important;
+}
+.theme-light-high-contrast .text-amber-400 {
+  color: #D97706 !important;
+}
+.theme-light-high-contrast .text-emerald-500 {
+  color: #059669 !important;
+}
+.theme-light-high-contrast .text-blue-500 {
+  color: #2563EB !important;
+}
+.theme-light-high-contrast .text-rose-500 {
+  color: #E11D48 !important;
+}
+.theme-light-high-contrast .text-amber-500 {
+  color: #D97706 !important;
+}
+
+/* High Contrast Texts for light theme */
+.theme-light-high-contrast h1,
+.theme-light-high-contrast h2,
+.theme-light-high-contrast h3,
+.theme-light-high-contrast h4,
+.theme-light-high-contrast h5,
+.theme-light-high-contrast h6,
+.theme-light-high-contrast .text-white,
+.theme-light-high-contrast .text-neutral-100,
+.theme-light-high-contrast .text-neutral-200 {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+.theme-light-high-contrast p,
+.theme-light-high-contrast .text-neutral-300,
+.theme-light-high-contrast .text-neutral-400,
+.theme-light-high-contrast .text-neutral-500 {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+.theme-light-high-contrast .text-neutral-600,
+.theme-light-high-contrast .text-neutral-700 {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure borders are refined and clean */
+.theme-light-high-contrast border,
+.theme-light-high-contrast .border-neutral-800,
+.theme-light-high-contrast .border-neutral-800\/80,
+.theme-light-high-contrast .border-neutral-800\/60,
+.theme-light-high-contrast .border-neutral-900\/50,
+.theme-light-high-contrast .border-white\/\[0\.02\] {
+  border-color: #E2E8F0 !important;
+  border-width: 1px !important;
+}
+
+.theme-light-high-contrast .border-y {
+  border-color: #E2E8F0 !important;
+  border-width: 1px 0 !important;
+}
+
+/* Node cards custom style overrides for light mode */
+.theme-light-high-contrast .absolute.bg-white {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  border-width: 1px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
+}
+
+.theme-light-high-contrast .absolute.bg-white .text-neutral-900 {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+.theme-light-high-contrast .absolute.bg-white .text-neutral-500,
+.theme-light-high-contrast .absolute.bg-white .text-neutral-400 {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+/* Buttons inside the light toolbar / overlays */
+.theme-light-high-contrast button:not(.bg-emerald-600):not(.bg-rose-600):not(.bg-blue-600):not(.bg-amber-600):not(.from-emerald-600):not(.text-emerald-400):not(.text-rose-400):not(.text-blue-400):not(.text-amber-400) {
+  border: 1px solid #E2E8F0 !important;
+  background-color: #FFFFFF !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light-high-contrast button:not(.bg-emerald-600):not(.bg-rose-600):not(.bg-blue-600):not(.bg-amber-600):not(.from-emerald-600):not(.text-emerald-400):not(.text-rose-400):not(.text-blue-400):not(.text-amber-400):hover {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Clean styles for colored primary buttons in light mode */
+.theme-light-high-contrast button.bg-emerald-600,
+.theme-light-high-contrast button.from-emerald-600 {
+  background: #059669 !important;
+  color: #FFFFFF !important;
+  border-color: #047857 !important;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.15) !important;
+}
+.theme-light-high-contrast button.bg-emerald-600:hover,
+.theme-light-high-contrast button.from-emerald-600:hover {
+  background: #047857 !important;
+}
+
+.theme-light-high-contrast button.bg-rose-600 {
+  background: #E11D48 !important;
+  color: #FFFFFF !important;
+  border-color: #BE123C !important;
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.15) !important;
+}
+.theme-light-high-contrast button.bg-rose-600:hover {
+  background: #BE123C !important;
+}
+
+.theme-light-high-contrast button.bg-neutral-800 {
+  background-color: #F1F5F9 !important;
+  color: #334155 !important;
+  border-color: #E2E8F0 !important;
+}
+.theme-light-high-contrast button.bg-neutral-800:hover {
+  background-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* Preserve active and highlighted button styles under light mode */
+.theme-light-high-contrast button.bg-amber-500\/10,
+.theme-light-high-contrast button.bg-amber-500\/20,
+.theme-light-high-contrast .bg-amber-500\/10 {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: #F59E0B !important;
+}
+
+.theme-light-high-contrast button.bg-emerald-500\/10,
+.theme-light-high-contrast button.bg-emerald-500\/20,
+.theme-light-high-contrast .bg-emerald-500\/10 {
+  background-color: #D1FAE5 !important;
+  color: #065F46 !important;
+  border-color: #10B981 !important;
+}
+
+.theme-light-high-contrast button.bg-blue-500\/10,
+.theme-light-high-contrast button.bg-blue-500\/20,
+.theme-light-high-contrast .bg-blue-500\/10 {
+  background-color: #DBEAFE !important;
+  color: #1E40AF !important;
+  border-color: #3B82F6 !important;
+}
+
+/* Sidebar Specific light adjustments */
+.theme-light-high-contrast .fixed.inset-y-0.right-0 {
+  background-color: #FFFFFF !important;
+  border-left: 1px solid #E2E8F0 !important;
+  box-shadow: -10px 0 30px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Inputs, textareas, and select elements */
+.theme-light-high-contrast input,
+.theme-light-high-contrast select,
+.theme-light-high-contrast textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  font-weight: 500 !important;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+.theme-light-high-contrast input:focus,
+.theme-light-high-contrast select:focus,
+.theme-light-high-contrast textarea:focus {
+  border-color: #3B82F6 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15), inset 0 1px 2px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+.theme-light-high-contrast input::placeholder,
+.theme-light-high-contrast textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Overlays / Modals */
+.theme-light-high-contrast .fixed.inset-0.bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.theme-light-high-contrast .bg-black\/40 {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Specific component modifications */
+.theme-light-high-contrast .bg-neutral-900\/60,
+.theme-light-high-contrast .bg-neutral-950\/80 {
+  background-color: #FFFFFF !important;
+}
+
+/* Mini Map light mode overrides */
+.theme-light-high-contrast #mini-map-container {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
+}
+
+.theme-light-high-contrast #mini-map-container .text-neutral-500 {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+.theme-light-high-contrast #mini-map-container svg {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+.theme-light-high-contrast .minimap-line.parent-child {
+  stroke: rgba(15, 23, 42, 0.22) !important;
+}
+
+.theme-light-high-contrast .minimap-line.marriage {
+  stroke: rgba(180, 83, 9, 0.5) !important;
+}
+
+.theme-light-high-contrast .minimap-node:not(.selected) {
+  stroke: rgba(15, 23, 42, 0.15) !important;
+}
+
+.theme-light-high-contrast .minimap-node[fill*="rgba(255, 255, 255"] {
+  fill: rgba(15, 23, 42, 0.25) !important;
+}
+
+.theme-light-high-contrast .minimap-viewport {
+  stroke: rgba(15, 23, 42, 0.6) !important;
+  fill: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Print Media Styles (Tier 6) */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  header,
+  #floating-toolbar-wrapper,
+  #mini-map-container,
+  #shortcuts-overlay,
+  #reset-overlay,
+  .ToastNotification,
+  [id^="profile-sidebar-"],
+  button,
+  .absolute.bottom-24.left-6 {
+    display: none !important;
+  }
+  #infinite-canvas-container {
+    background: white !important;
+    cursor: default !important;
+  }
+  #infinite-canvas-bg {
+    background-image: none !important;
+    background-color: white !important;
+  }
+  #workspace-layer {
+    transform: scale(1) translate(0, 0) !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+}
+
+/* Premium Toolbar Tooltip */
+.toolbar-tooltip {
+  position: absolute;
+  bottom: 2.85rem;
+  left: 50%;
+  transform: translate(-50%, 6px) scale(0.92);
+  background-color: #161719;
+  font-size: 9px;
+  font-weight: 700;
+  color: #f3f4f6; /* brighter text-gray-100 */
+  font-family: var(--font-sans), system-ui, sans-serif; /* cleaner sans font */
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #2d2f34; /* slightly brighter border for high contrast definition */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+/* Tooltip Arrow */
+.toolbar-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #161719 transparent transparent transparent;
+}
+
+/* Tooltip Border Arrow definition */
+.toolbar-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2d2f34 transparent transparent transparent;
+  margin-top: 0px;
+  z-index: -1;
+}
+
+/* Light mode overrides for tooltips */
+.theme-light-high-contrast .toolbar-tooltip {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+}
+
+.theme-light-high-contrast .toolbar-tooltip::after {
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.theme-light-high-contrast .toolbar-tooltip::before {
+  border-color: #cbd5e1 transparent transparent transparent;
+}
+
+.group:hover .toolbar-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+
