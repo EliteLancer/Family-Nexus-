@@ -23,6 +23,7 @@ import SearchOverlay from './components/SearchOverlay';
 import StatsModal from './components/StatsModal';
 
 // New Extracted Components
+import TimelineRuler from './components/TimelineRuler';
 import SplashScreen from './components/SplashScreen';
 import HeaderHUD from './components/HeaderHUD';
 import CanvasToolbar from './components/CanvasToolbar';
@@ -491,17 +492,25 @@ export default function App() {
         playTick={playTick}
       />
 
-      {/* Infinite Family Canvas Area */}
       <div
         ref={containerRef}
         id="infinite-canvas-container"
-        className="w-full h-full cursor-grab active:cursor-grabbing outline-none"
+        className="w-full h-full cursor-grab active:cursor-grabbing outline-none relative"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onDoubleClick={handleDoubleClick}
       >
+        {/* Generational Timeline Ruler (Tier 3 feature) */}
+        <TimelineRuler
+          nodesArr={nodesArr}
+          people={people}
+          transform={transform}
+          orientation={layoutOrientation}
+          containerRef={containerRef}
+        />
+
         <div
           id="infinite-canvas-bg"
           className="w-full h-full relative"
